@@ -1,12 +1,10 @@
 from player import PlayerReader, PlayerStats
 from rich.console import Console
 from rich.table import Table
-from rich import box
 
 def render_table(players, season, nationality):
     table = Table(
         title=f"Season {season} – players from ({nationality})",
-        box=box.SIMPLE_HEAVY,
         header_style="bold white on blue",
         title_style="bold yellow",
         show_lines=False,
