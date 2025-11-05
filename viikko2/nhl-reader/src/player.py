@@ -6,9 +6,9 @@ class PlayerReader:
     def __init__(self, season: str):
         self.season = season
         self.players = []
-        self._fetch()
+        self.fetch()
 
-    def _fetch(self):
+    def fetch(self):
         url = f"{BASE_URL}/{self.season}/players"
         resp = requests.get(url, timeout=30)
         resp.raise_for_status()
@@ -26,11 +26,12 @@ class Player:
         self.goals = int(player_dict.get('goals', 0))
         self.team = player_dict.get('team', '')
         self.games = int(player_dict.get('games', 0))
-        self.id_no = player_dict.get('id')
-        self.points = self.goals + self.assists
 
     def __str__(self):
-        return f"{self.name:20} {self.team:15} {self.goals:2} + {self.assists:2} = {self.points}"
+        return f"{self.name:20} {self.team:15} {self.goals:2} + {self.assists:2} = {self.goals + self.assists}"
+
+    def __repr__(self):
+        return str(self)
 
 class PlayerStats:
     def __init__(self, reader: PlayerReader):
@@ -38,5 +39,8 @@ class PlayerStats:
 
     def top_scorers_by_nationality(self, nationality: str):
         players = [p for p in self.reader.get_players() if p.nationality == nationality]
-        players.sort(key=lambda p: (p.points, p.goals), reverse=True)
+        players.sort(key=lambda p: (p.assists + p.goals), reverse=True)
         return players
+
+    def __repr__(self):
+        return str(self)
