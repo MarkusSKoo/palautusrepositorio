@@ -16,3 +16,4 @@ print(f"{x} * {y} = {tulo(x, y)}")
 
 logger("lopetetaan ohjelma")
 print("goodbye!") # lisäys bugikorjaus-branchissa
+# lisätään kommentti alkuperäisessä repossa
