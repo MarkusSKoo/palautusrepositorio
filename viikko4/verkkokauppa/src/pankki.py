@@ -12,6 +12,6 @@ class Pankki:
 
         # täällä olisi koodi joka ottaa yhteyden pankin verkkorajapintaan
         return True
-
+# creating a change for week 5 exercise 1
 
 pankki = Pankki()
