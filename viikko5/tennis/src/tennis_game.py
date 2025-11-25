@@ -32,11 +32,7 @@ class TennisGame:
         return score_names[player_score]
 
     def non_endgame_score(self, player1_score: int, player2_score: int):
-        score = ""
-        score += self.non_endgame_score_helper(player1_score)
-        score += "-"
-        score += self.non_endgame_score_helper(player2_score)
-        return score
+        return f"{self.non_endgame_score_helper(player1_score)}-{self.non_endgame_score_helper(player2_score)}"
 
 
     def get_score(self):
