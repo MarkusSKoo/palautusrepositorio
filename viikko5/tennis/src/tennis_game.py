@@ -36,7 +36,6 @@ class TennisGame:
 
 
     def get_score(self):
-        score = ""
 
         if self.player1_score == self.player2_score:
             score = self.tie_score(self.player1_score)
