@@ -31,7 +31,7 @@ class TennisGame:
         score_names = {0: "Love", 1: "Fifteen", 2: "Thirty", 3: "Forty"}
         return score_names[player_score]
 
-    def non_endgame_score(self, player1_score: int, player2_score: int):
+    def non_endgame_score(self, player1_score: int, player2_score: int) -> str:
         return f"{self.non_endgame_score_helper(player1_score)}-{self.non_endgame_score_helper(player2_score)}"
 
 
